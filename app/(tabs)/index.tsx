@@ -1,11 +1,10 @@
 import ElectricityPage from '@/components/ElectricityPage';
 import { StyleSheet, View } from 'react-native';
 
-
-export default function TabOneScreen() {
+export default function ConsumptionScreen() {
   return (
     <View style={styles.container}>
-      <ElectricityPage/>
+      <ElectricityPage />
     </View>
   );
 }
