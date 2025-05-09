@@ -1,12 +1,18 @@
 import { View, Text, StyleSheet } from 'react-native';
 import ElectricityGraph from './ElectricityGraph';
+import data from '../assets/data.json';
 
 const ElectricityPage = () => {
+  const userConsumption = data.userConsumption;
+  const buildingAverage = data.buildingAverage;
   return (
     <View style={styles.container}>
       <ElectricityTitle />
-      <ElectricityGraph />
-      <AverageSection />
+      <ElectricityGraph
+        userConsumption={userConsumption}
+        buildingAverage={buildingAverage}
+      />
+      <AverageSection buildingAverage={buildingAverage} />
     </View>
   );
 };
@@ -21,8 +27,12 @@ const ElectricityTitle = () => {
   );
 };
 
-const AverageSection = () => {
-  return <Text style={styles.average}>Media edificio diaria: 4,1 kWh</Text>;
+const AverageSection = ({ buildingAverage }: { buildingAverage: number }) => {
+  return (
+    <Text style={styles.average}>
+      Media edificio diaria: {buildingAverage.toLocaleString('es')} kWh
+    </Text>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -32,7 +42,7 @@ const styles = StyleSheet.create({
     paddingTop: 24,
     paddingBottom: 32,
     maxWidth: 480,
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   titleContainer: {
     width: '100%',

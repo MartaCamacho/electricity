@@ -1,11 +1,14 @@
 import { StyleSheet, Text, View, Animated } from 'react-native';
-import data from '../assets/data.json';
 import { getPercentageComparedToAverage } from '@/utils';
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
-const ElectricityGraph = () => {
-  const userConsumption = data.userConsumption;
-  const buildingAverage = data.buildingAverage;
+const ElectricityGraph = ({
+  userConsumption,
+  buildingAverage,
+}: {
+  userConsumption: number;
+  buildingAverage: number;
+}) => {
   const internalCircleSize = getPercentageComparedToAverage(
     userConsumption,
     buildingAverage
