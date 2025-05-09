@@ -3,8 +3,8 @@ import ElectricityGraph from './ElectricityGraph';
 import data from '../assets/data.json';
 
 const ElectricityPage = () => {
-  const userConsumption = data.userConsumption;
-  const buildingAverage = data.buildingAverage;
+  const userConsumption: number = data.userConsumption;
+  const buildingAverage: number = data.buildingAverage;
   return (
     <View style={styles.container}>
       <ElectricityTitle />

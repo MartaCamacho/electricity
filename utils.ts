@@ -3,5 +3,6 @@ export const getPercentageComparedToAverage = (
   buildingAverage: number
 ) => {
   if (buildingAverage === 0) return 0;
+  if (buildingAverage < userConsumption) return 100
   return (userConsumption / buildingAverage) * 100;
 };
